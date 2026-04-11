@@ -11,7 +11,6 @@ import { mosyGetData,  } from '../../../MosyUtils/hiveUtils';
 import { MosyNotify , closeMosyModal } from '../../../MosyUtils/ActionModals';
     
 import { getApiRoutes } from '../../AppRoutes/apiRoutesHandler';
-import FuelsalesList from '../../fuelsales/uiControl/FuelsalesList';
 
 const apiRoutes = getApiRoutes()
 

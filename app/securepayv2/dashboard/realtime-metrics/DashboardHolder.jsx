@@ -10,9 +10,6 @@ import { mosyGetData,  } from '../../../MosyUtils/hiveUtils';
 
 import { MosyNotify , closeMosyModal } from '../../../MosyUtils/ActionModals';
 
-import FuelinventoryList from '../../fuelinventory/uiControl/FuelinventoryList';
-
-import { InteprateFuelinventoryEvent } from '../../fuelinventory/dataControl/FuelinventoryRequestHandler';
 
 import { getApiRoutes } from '../../AppRoutes/apiRoutesHandler';
 
@@ -54,15 +51,7 @@ export default function DashboardHolder() {
       </div>
       <MosySpace spaceClass="p-2" />
       <MosyTitleTag title="Fuel in stock" />
-                     
-       <FuelinventoryList                                  
-      dataIn={{ parentUseEffectKey: "loadFuelstockList", showDataControlSections: false }}
-                             
-      dataOut={{
-        setChildDataOut: InteprateFuelinventoryEvent
-      }}
 
-    />
     </div>
     </>
 
