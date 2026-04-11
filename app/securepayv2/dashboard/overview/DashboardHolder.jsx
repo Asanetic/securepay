@@ -10,9 +10,6 @@ import { mosyGetData,  } from '../../../MosyUtils/hiveUtils';
 
 import { MosyNotify , closeMosyModal } from '../../../MosyUtils/ActionModals';
 
-import FuelstationmanagementList from '../../stations/uiControl/FuelstationmanagementList';
-
-import { InteprateFuelstationmanagementEvent } from '../../stations/dataControl/FuelstationmanagementRequestHandler';
 
 import { getApiRoutes } from '../../AppRoutes/apiRoutesHandler';
 
@@ -55,14 +52,7 @@ export default function DashboardHolder() {
       <MosySpace spaceClass="p-2" />
       <MosyTitleTag title="Stations" />
                      
-       <FuelstationmanagementList                                  
-      dataIn={{ parentUseEffectKey: "loadstations", showDataControlSections: false }}
-                             
-      dataOut={{
-        setChildDataOut: InteprateFuelstationmanagementEvent
-      }}
 
-    />
     </div>
     </>
 
