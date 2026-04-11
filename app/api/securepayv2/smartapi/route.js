@@ -1,14 +1,6 @@
 // app/api/smartapi/route.js
 
 import { processAuthToken } from "../../auth/authManager";
-import { syncWithItax } from "../inventory/logicControl/itax-utils";
-import { addcreditPayment } from "../saleshistory/logicControl/add-credit-payment";
-import { addFuelSalePayments } from "../fuelsales/logicControl/add-fuel-sale-payment";
-import { closeshift } from "../banking/logicControl/close-shift";
-import { syncshiftPayments } from "../banking/logicControl/sync-shift";
-import { closePosShift } from "../systemshifts/logicControl/close-pos-shift";
-import { openPosShift } from "../systemshifts/logicControl/open-pos-shift";
-import { syncFuelItemWithItax } from "../fuelinventory/logicControl/itax-utils";
 
 // ================================
 // ACTION HANDLERS (REGISTER HERE)
@@ -16,14 +8,7 @@ import { syncFuelItemWithItax } from "../fuelinventory/logicControl/itax-utils";
 
 // One map. One truth.
 const ACTIONS = {
-closeshift,
-addcreditPayment,
-addFuelSalePayments,
-closePosShift,
-openPosShift,
-syncshiftPayments,
-syncWithItax,
-syncFuelItemWithItax
+
 };
 // ================================
 // UTILS
