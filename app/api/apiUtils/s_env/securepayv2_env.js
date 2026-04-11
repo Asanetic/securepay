@@ -11,7 +11,7 @@ const mosyDbConfig = {
     DB_HOST: '127.0.0.1',
     DB_USER: 'nextadmin',
     DB_PASS: 'nextadmin001',
-    DB_NAME: 'securepayv2',
+    DB_PASS: 'UltraSecurePass123!',
     dateStrings: true
 
   }
