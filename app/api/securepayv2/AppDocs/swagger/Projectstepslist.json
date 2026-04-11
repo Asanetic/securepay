@@ -1,0 +1,121 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Project steps list API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "api/securepayv2/projectsteps/projectstepslist": {
+            "get": {
+                "summary": "Get Project steps list",
+                "parameters": [
+                    {
+                        "name": "searchAny",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Base64 search value"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Project steps list",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "project_id": {
+                                        "type": "string",
+                                        "description": "Project id"
+                                    },
+                                    "step_name": {
+                                        "type": "string",
+                                        "description": "Step name"
+                                    },
+                                    "step_status": {
+                                        "type": "string",
+                                        "description": "Step status"
+                                    },
+                                    "step_order": {
+                                        "type": "string",
+                                        "description": "Step order"
+                                    },
+                                    "notes": {
+                                        "type": "string",
+                                        "description": "Notes"
+                                    },
+                                    "created_at": {
+                                        "type": "string",
+                                        "description": "Created at"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Created successfully"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Project steps list",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "project_id": {
+                                        "type": "string",
+                                        "description": "Project id"
+                                    },
+                                    "step_name": {
+                                        "type": "string",
+                                        "description": "Step name"
+                                    },
+                                    "step_status": {
+                                        "type": "string",
+                                        "description": "Step status"
+                                    },
+                                    "step_order": {
+                                        "type": "string",
+                                        "description": "Step order"
+                                    },
+                                    "notes": {
+                                        "type": "string",
+                                        "description": "Notes"
+                                    },
+                                    "created_at": {
+                                        "type": "string",
+                                        "description": "Created at"
+                                    },
+                                    "Node": {
+                                        "type": "string",
+                                        "description": " Project steps list id to update "
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Updated successfully"
+                    }
+                }
+            }
+        }
+    }
+}

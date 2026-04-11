@@ -1,0 +1,36 @@
+{
+    "smartapi": {
+        "base": "/api/octanev4/smartapi"
+    },
+    "dashboard": {
+        "admin": "/api/octanev4/saleshistory/dashboard/admin",
+        "overview": "/api/octanev4/dashboard/overview",
+        "detection": "/api/octanev4/dashboard/detection",
+        "realtime": "/api/octanev4/dashboard/realtime-metrics"
+    },
+    "projectslist": {
+        "base": "/api/securepayv2/projects/projectslist",
+        "delete": "/api/securepayv2/projects/delete",
+        "import": "/api/securepayv2/projects/projectslist/import"
+    },
+    "clientledger": {
+        "base": "/api/securepayv2/clients/clientledger",
+        "delete": "/api/securepayv2/clients/delete",
+        "import": "/api/securepayv2/clients/clientledger/import"
+    },
+    "paymentslist": {
+        "base": "/api/securepayv2/payments/paymentslist",
+        "delete": "/api/securepayv2/payments/delete",
+        "import": "/api/securepayv2/payments/paymentslist/import"
+    },
+    "documentslist": {
+        "base": "/api/securepayv2/documents/documentslist",
+        "delete": "/api/securepayv2/documents/delete",
+        "import": "/api/securepayv2/documents/documentslist/import"
+    },
+    "projectstepslist": {
+        "base": "/api/securepayv2/projectsteps/projectstepslist",
+        "delete": "/api/securepayv2/projectsteps/delete",
+        "import": "/api/securepayv2/projectsteps/projectstepslist/import"
+    }
+}

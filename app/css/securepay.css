@@ -1,0 +1,633 @@
+
+/* ===== FLOAT LEFT CONTACT ===== */
+.elforge_mosy_side_actions_v1 {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* BUTTON */
+.elforge_mosy_side_btn_v1 {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-decoration:none;
+}
+
+/* CALL */
+.elforge_mosy_call_btn_v1 {
+    background: #2563eb;
+    color: white;
+}
+
+/* WHATSAPP */
+.elforge_mosy_whatsapp_btn_v1 {
+    background: #25d366;
+    color: white;
+}
+
+/* HOVER */
+.elforge_mosy_side_btn_v1:hover {
+    transform: scale(1.05);
+}
+
+/* MOBILE SAFE (slightly smaller) */
+@media (max-width: 576px) {
+    .elforge_mosy_side_btn_v1 {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+}
+
+
+
+
+/* ===== FLOATING ACTION BAR ===== */
+.elforge_mosy_floatbar_v1 {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 20px);
+    max-width: 480px;
+
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+    padding: 8px;
+    z-index: 9999;
+}
+
+/* BUTTON WRAP */
+.elforge_mosy_floatbar_inner_v1 {
+    display: flex;
+    gap: 8px;
+}
+
+/* BUTTON BASE */
+.elforge_mosy_float_btn_v1 {
+    flex: 1;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+}
+
+/* PRIMARY */
+.elforge_mosy_float_primary_v1 {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: white;
+}
+
+/* SECONDARY */
+.elforge_mosy_float_secondary_v1 {
+    background: #f1f5f9;
+}
+
+/* PREVENT CONTENT HIDDEN BEHIND BAR */
+body {
+    padding-bottom: 90px;
+}
+
+
+
+/* ===== PROJECT HEADER ===== */
+.elforge_mosy_project_head_v6 {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
+.elforge_mosy_project_title_v6 {
+    font-weight: 700;
+}
+
+/* SUB */
+.elforge_mosy_project_ref_v6 {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+/* STATUS BADGE */
+.elforge_mosy_status_badge_v6 {
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* STATES */
+.elforge_mosy_status_paid {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.elforge_mosy_status_pending {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.elforge_mosy_status_active {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+
+
+
+
+/* ===== PROGRESS BAR ===== */
+.elforge_mosy_progress_wrap_v4 {
+    margin-bottom: 15px;
+}
+
+.elforge_mosy_progress_bar_v4 {
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.elforge_mosy_progress_fill_v4 {
+    height: 100%;
+    background: linear-gradient(90deg, #16a34a, #22c55e);
+    width: 45%;
+    border-radius: 10px;
+}
+
+/* LABEL */
+.elforge_mosy_progress_text_v4 {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 4px;
+}
+
+/* ===== STATUS SUMMARY ===== */
+.elforge_mosy_status_box_v4 {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.elforge_mosy_status_item_v4 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+/* ICON COLOR HELPERS */
+.elforge_mosy_text_success {
+    color: #16a34a;
+}
+
+.elforge_mosy_text_active {
+    color: #2563eb;
+}
+
+/* ===== TIMELINE SPACING TWEAK ===== */
+.elforge_mosy_step_item_v3 {
+    margin-bottom: 20px;
+}
+
+
+/* ===== ACTION SECTION ===== */
+.elforge_mosy_action_box_v5 {
+    margin-top: 10px;
+}
+
+/* PRIMARY (release funds) */
+.elforge_mosy_btn_success_v5 {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* DOWNLOADS */
+.elforge_mosy_docs_v5 {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 12px;
+}
+
+.elforge_mosy_doc_item_v5 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+/* MODAL POLISH */
+.modal-content {
+    border-radius: 16px;
+    border: none;
+}
+
+.elforge_mosy_modal_title_v5 {
+    font-weight: 700;
+}
+
+.elforge_mosy_option_v5 {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.elforge_mosy_option_v5:hover {
+    background: #f1f5f9;
+}
+
+
+
+
+/* ===== GLOBAL ===== */
+body {
+    background: #fff;
+    line-height: 35px;
+}
+
+/* ===== CARD ===== */
+.elforge_mosy_card_v2 {
+    border-radius: 16px;
+    border: none;
+}
+
+/* ===== HEADER ===== */
+.elforge_mosy_title_v2 {
+    color: #1e40af;
+}
+
+.elforge_mosy_sub_v2 {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* ===== TRUST ===== */
+.elforge_mosy_trust_v2 {
+    background: #f1f5f9;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* ===== BUTTON ===== */
+.elforge_mosy_btn_primary_v2 {
+    background: #16a34a;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.elforge_mosy_btn_secondary_v2 {
+    background: #e9ecef;
+    border: none;
+    border-radius: 10px;
+}
+
+/* ===== STEPS ===== */
+
+/* ===== TIMELINE ===== */
+.elforge_mosy_timeline_v3 {
+    position: relative;
+    padding-left: 30px;
+}
+
+.elforge_mosy_timeline_v3::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e5e7eb;
+}
+
+/* ===== STEP ===== */
+.elforge_mosy_step_item_v3 {
+    position: relative;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+}
+
+/* ICON */
+.elforge_mosy_step_icon_v3 {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    position: absolute;
+    left: -1px;
+}
+
+/* STATES */
+.elforge_mosy_step_done_v3 {
+    background: #16a34a;
+    color: white;
+}
+
+.elforge_mosy_step_active_v3 {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
+}
+
+.elforge_mosy_step_pending_v3 {
+    background: #e5e7eb;
+    color: #6b7280;
+}
+
+/* TEXT */
+.elforge_mosy_step_text_v3 {
+    margin-left: 35px;
+}
+
+.elforge_mosy_step_title_v3 {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.elforge_mosy_step_sub_v3 {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+
+/* ===== AMOUNT HERO ===== */
+.elforge_mosy_amount_v4 {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: white;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.elforge_mosy_amount_value_v4 {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.elforge_mosy_amount_label_v4 {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* ===== INFO GRID ===== */
+.elforge_mosy_info_v4 {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.elforge_mosy_info_item_v4 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+/* ===== TRUST WITH ICONS ===== */
+.elforge_mosy_trust_v4 {
+    background: #ecfdf5;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.elforge_mosy_trust_item_v4 {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+/* ===== INPUT MODERN ===== */
+.elforge_mosy_input_v4 {
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.elforge_mosy_input_v4:focus {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22,163,74,0.1);
+}
+
+/* ===== BUTTONS ===== */
+.elforge_mosy_btn_primary_v4 {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.elforge_mosy_btn_primary_v4:hover {
+    opacity: 0.95;
+}
+
+.elforge_mosy_btn_secondary_v4 {
+    background: #f1f5f9;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* ===== CARD TIGHTER ON MOBILE ===== */
+.elforge_mosy_card_v2 {
+    border-radius: 18px;
+    padding: 18px !important;
+}
+
+
+/* ===== INPUT GROUP ===== */
+.elforge_mosy_input_group_v5 {
+    margin-bottom: 16px;
+}
+
+/* LABEL */
+.elforge_mosy_label_v5 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* SUBTEXT */
+.elforge_mosy_label_sub_v5 {
+    font-size: 12px;
+    color: #6c757d;
+    margin-bottom: 6px;
+}
+
+/* INPUT */
+.elforge_mosy_input_v5 {
+    border-radius: 12px;
+    padding: 13px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    width: 100%;
+}
+
+.elforge_mosy_input_v5:focus {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22,163,74,0.1);
+    outline: none;
+}
+
+                                
+.elforge_mosy_nav_v1 {
+    background: white;
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.elforge_mosy_nav_brand_v1 {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.elforge_mosy_nav_brand_v1 i {
+    color: #16a34a;
+}
+
+.elforge_mosy_nav_status_v1 {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.elforge_mosy_banner_v1 {
+    background: #f0fdf4;
+    border: 1px solid #dcfce7;
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.elforge_mosy_banner_icon_v1 {
+    font-size: 18px;
+    color: #16a34a;
+    margin-top: 2px;
+}
+
+.elforge_mosy_banner_title_v1 {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.elforge_mosy_banner_sub_v1 {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+
+/* ===== HERO CARD ===== */
+.elforge_mosy_hero_banner_v2 {
+     align-items: center;
+ 
+    background: #fff;
+    color: #000;
+
+    padding: 18px;
+
+    overflow: hidden;
+}
+
+/* LEFT */
+.elforge_mosy_hero_left_v2 {
+    flex: 1;
+}
+
+/* BADGE */
+.elforge_mosy_hero_badge_v2 {
+    font-size: 11px;
+    background: rgba(255,255,255,0.1);
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* TITLE */
+.elforge_mosy_hero_title_v2 {
+    margin-bottom: 6px;
+    color: #1d1d1d;
+    line-height: 40px;
+    
+}
+
+/* SUBTEXT */
+.elforge_mosy_hero_sub_v2 {
+    font-size: 18px;
+    color: #000;
+    line-height: 35px;
+}
+
+/* IMAGE */
+.elforge_mosy_hero_right_v2 img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 14px;
+
+    -webkit-mask-image: linear-gradient(to bottom, 
+        rgba(0,0,0,1) 70%, 
+        rgba(0,0,0,0) 100%
+    );
+    mask-image: linear-gradient(to bottom, 
+        rgba(0,0,0,1) 70%, 
+        rgba(0,0,0,0) 100%
+    );    
+}
+
+.elforge_mosy_hero_img_v2 {
+    width: 100%;
+    height: auto;
+
+}
+
+/* MOBILE STACK */
+@media (max-width: 576px) {
+
+    .elforge_mosy_hero_right_v2 img {
+        width: 100%;
+        height: 300px;
+    }
+}

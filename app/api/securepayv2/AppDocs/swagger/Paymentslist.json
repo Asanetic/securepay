@@ -1,0 +1,161 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Payments list API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "api/securepayv2/payments/paymentslist": {
+            "get": {
+                "summary": "Get Payments list",
+                "parameters": [
+                    {
+                        "name": "searchAny",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Base64 search value"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Payments list",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "project_id": {
+                                        "type": "string",
+                                        "description": "Project id"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "description": "Client id"
+                                    },
+                                    "amount": {
+                                        "type": "string",
+                                        "description": "Amount"
+                                    },
+                                    "payment_method": {
+                                        "type": "string",
+                                        "description": "Payment method"
+                                    },
+                                    "transaction_code": {
+                                        "type": "string",
+                                        "description": "Transaction code"
+                                    },
+                                    "payer_name": {
+                                        "type": "string",
+                                        "description": "Payer name"
+                                    },
+                                    "payer_phone": {
+                                        "type": "string",
+                                        "description": "Payer phone"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "description": "Status"
+                                    },
+                                    "paid_at": {
+                                        "type": "string",
+                                        "description": "Paid at"
+                                    },
+                                    "created_at": {
+                                        "type": "string",
+                                        "description": "Created at"
+                                    },
+                                    "bill_ref_no": {
+                                        "type": "string",
+                                        "description": "Bill ref no"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Created successfully"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Payments list",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "project_id": {
+                                        "type": "string",
+                                        "description": "Project id"
+                                    },
+                                    "client_id": {
+                                        "type": "string",
+                                        "description": "Client id"
+                                    },
+                                    "amount": {
+                                        "type": "string",
+                                        "description": "Amount"
+                                    },
+                                    "payment_method": {
+                                        "type": "string",
+                                        "description": "Payment method"
+                                    },
+                                    "transaction_code": {
+                                        "type": "string",
+                                        "description": "Transaction code"
+                                    },
+                                    "payer_name": {
+                                        "type": "string",
+                                        "description": "Payer name"
+                                    },
+                                    "payer_phone": {
+                                        "type": "string",
+                                        "description": "Payer phone"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "description": "Status"
+                                    },
+                                    "paid_at": {
+                                        "type": "string",
+                                        "description": "Paid at"
+                                    },
+                                    "created_at": {
+                                        "type": "string",
+                                        "description": "Created at"
+                                    },
+                                    "bill_ref_no": {
+                                        "type": "string",
+                                        "description": "Bill ref no"
+                                    },
+                                    "Node": {
+                                        "type": "string",
+                                        "description": " Payments list id to update "
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Updated successfully"
+                    }
+                }
+            }
+        }
+    }
+}

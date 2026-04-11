@@ -1,0 +1,47 @@
+.elforge_file_card_v1 {
+  text-decoration: none;
+  color: inherit;
+}
+
+.elforge_file_inner {
+  border-radius: 54px;
+  padding: 16px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.25s ease;
+}
+
+.elforge_file_inner:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  background: #ffffff;
+}
+
+.elforge_file_icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+  opacity: 0.85;
+  transition: all 0.25s ease;
+}
+
+.elforge_file_inner:hover .elforge_file_icon {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+.elforge_file_name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+.elforge_file_action {
+  font-size: 12px;
+  color: #888;
+  transition: all 0.2s ease;
+}
+
+.elforge_file_inner:hover .elforge_file_action {
+  color: #000;
+}

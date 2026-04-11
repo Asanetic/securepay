@@ -1,0 +1,12 @@
+{
+    "projects/profile": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL3Byb2plY3RzL1Byb2plY3RzIGxpc3RfYmx1ZXByaW50LkRuYWFm",
+    "projects/list": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL3Byb2plY3RzL1Byb2plY3RzIGxpc3RfYmx1ZXByaW50LkRuYWFm",
+    "clients/profile": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL2NsaWVudHMvQ2xpZW50IGxlZGdlcl9ibHVlcHJpbnQuRG5hYWY=",
+    "clients/list": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL2NsaWVudHMvQ2xpZW50IGxlZGdlcl9ibHVlcHJpbnQuRG5hYWY=",
+    "payments/profile": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL3BheW1lbnRzL1BheW1lbnRzIGxpc3RfYmx1ZXByaW50LkRuYWFm",
+    "payments/list": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL3BheW1lbnRzL1BheW1lbnRzIGxpc3RfYmx1ZXByaW50LkRuYWFm",
+    "documents/profile": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL2RvY3VtZW50cy9Eb2N1bWVudHMgbGlzdF9ibHVlcHJpbnQuRG5hYWY=",
+    "documents/list": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL2RvY3VtZW50cy9Eb2N1bWVudHMgbGlzdF9ibHVlcHJpbnQuRG5hYWY=",
+    "projectsteps/profile": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL3Byb2plY3Rfc3RlcHMvUHJvamVjdCBzdGVwcyBsaXN0X2JsdWVwcmludC5EbmFhZg==",
+    "projectsteps/list": "http://localhost/nextv2/mainapps/securepayv2/terminal/home?check_autoload=Li4vYXBwZG5hL3NlY3VyZXBheXYyL3Byb2plY3Rfc3RlcHMvUHJvamVjdCBzdGVwcyBsaXN0X2JsdWVwcmludC5EbmFhZg=="
+}
