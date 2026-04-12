@@ -14,10 +14,10 @@ export default function FloatingBar(props = {}) {
     Pay Now
   </button>
 )}
-  
+{/*   
           <button className="elforge_mosy_float_btn_v1 elforge_mosy_float_secondary_v1">
-            Status
-          </button>
+            Status : {isFullyPaid ? "Fully Paid" : "Pending paid"}
+          </button> */}
   
         </div>
       </div>
