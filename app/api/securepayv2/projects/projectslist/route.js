@@ -54,13 +54,14 @@ export async function GET(request) {
     Node : "primkey", 
     NodeId : "record_id", 
     clientId : "client_id", 
+    contractor : "contractor", 
     projectName : "project_name", 
-    projectRef : "project_ref", 
     amount : "amount", 
     currency : "currency", 
     status : "status", 
     progressPercent : "progress_percent", 
     createdAt : "created_at", 
+    projectRef : "project_ref", 
 
   }
 
@@ -156,13 +157,14 @@ export async function POST(ProjectslistRequest) {
   const ProjectslistInputsArr = {
 
     "client_id" : "?", 
+    "contractor" : "?", 
     "project_name" : "?", 
-    "project_ref" : "?", 
     "amount" : "?", 
     "currency" : "?", 
     "status" : "?", 
     "progress_percent" : "?", 
     "created_at" : "?", 
+    "project_ref" : "?", 
 
   };
 
@@ -258,13 +260,14 @@ export async function PUT(ProjectslistRequest) {
   const ProjectslistInputsArr = {
 
     "client_id" : "?", 
+    "contractor" : "?", 
     "project_name" : "?", 
-    "project_ref" : "?", 
     "amount" : "?", 
     "currency" : "?", 
     "status" : "?", 
     "progress_percent" : "?", 
     "created_at" : "?", 
+    "project_ref" : "?", 
 
   };
 

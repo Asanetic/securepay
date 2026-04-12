@@ -180,7 +180,7 @@ Key relationships:
         "hidden_inputs" => [], 
         "print_tables" => ["payments"], 
         "skip_cols_profile" => ["hive_site_id","hive_site_name"], 
-        "skip_cols_list" => ["hive_site_id","hive_site_name","transaction_code","payer_phone","created_at","bill_ref_no"],  
+        "skip_cols_list" => ["hive_site_id","hive_site_name","payer_phone","created_at"],  
         "running_bal_col_tbl" => [],
         "grid_tbl" => [], 
         "view_tbl_only" => [],
@@ -226,7 +226,7 @@ Key relationships:
     "data_behaviour" => [
         //this will add cehck boxes on each row   
        "add_grid_check_boxes"=>[
-          "payments"=>"loadPayments()"
+          "payments_"=>"loadPayments()"
         ],
                  
         //Ai Notes  dont clear this custom_multi_grid_rows instead customize if possible

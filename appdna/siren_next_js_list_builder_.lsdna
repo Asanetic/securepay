@@ -23,7 +23,7 @@ $overwrite_dna_file = "yes"; // yes | no
    ========================= */
 eval(find_snippet("1171"));   // camelCase converter
 
-$table_config_file__ = "../appdna/securepayv2/project_steps/tbl_attr/project_steps_config_config.php";
+$table_config_file__ = "../appdna/securepayv2/projects/tbl_attr/projects___config.php";
 
 include($table_config_file__);
 

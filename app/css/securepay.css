@@ -341,6 +341,7 @@ body {
 
 /* ICON */
 .elforge_mosy_step_icon_v3 {
+    padding-top: 2px;
     width: 26px;
     height: 26px;
     border-radius: 50%;
@@ -631,3 +632,7 @@ body {
         height: 300px;
     }
 }
+
+
+
+/*===== payment modal ====*/

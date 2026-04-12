@@ -49,10 +49,19 @@ import { getApiRoutes } from '../../AppRoutes/apiRoutesHandler';
 // Use default base root (/)
 const apiRoutes = getApiRoutes();
 
-
+import ProjectstepslistProfile from '../../projectsteps/uiControl/ProjectstepslistProfile';
+import {InteprateProjectstepslistEvent} from '../../projectsteps/dataControl/ProjectstepslistRequestHandler';
+import DocumentslistProfile from '../../documents/uiControl/DocumentslistProfile';
+import {InteprateDocumentslistEvent} from '../../documents/dataControl/DocumentslistRequestHandler';
 // ════════════════════════════════════════════════════════════════
 // PROFILE PAGE FUNCTION IMPORTS
 // ════════════════════════════════════════════════════════════════
+// Imports from project-view.jsx
+import {
+  viewPage,
+  viewProjectPayments
+} from '../logicControl/project-view';
+
 
 
 // export profile
@@ -151,6 +160,44 @@ export default function ProjectslistProfile({ dataIn = {}, dataOut = {} }) {
   
   //child queries use effect
   
+  //setProjectstepslistCustomProfileQuery Script
+  const setProjectstepslistCustomProfileQuery = stateItemSetters.setProjectstepslistCustomProfileQuery;
+  const projectstepslistCustomProfileQuery =  stateItem.projectstepslistCustomProfileQuery;
+  
+  useEffect(() => {
+    if (projectsNode?.primkey && setProjectstepslistCustomProfileQuery) {
+      
+      const query = {projectId:btoa(projectsNode?.record_id)};
+      
+      const tokenUrl = mosyUrlParam("_dataNode")
+      
+      if(!tokenUrl)
+      {
+        setProjectstepslistCustomProfileQuery(query);
+      }
+      
+    }
+  }, [projectsNode, setProjectstepslistCustomProfileQuery]);
+  
+  //setDocumentslistCustomProfileQuery Script
+  const setDocumentslistCustomProfileQuery = stateItemSetters.setDocumentslistCustomProfileQuery;
+  const documentslistCustomProfileQuery =  stateItem.documentslistCustomProfileQuery;
+  
+  useEffect(() => {
+    if (projectsNode?.primkey && setDocumentslistCustomProfileQuery) {
+      
+      const query =  {projectId:btoa(projectsNode?.record_id)};
+      
+      const tokenUrl = mosyUrlParam("_dataNode")
+      
+      if(!tokenUrl)
+      {
+        setDocumentslistCustomProfileQuery(query);
+      }
+      
+    }
+  }, [projectsNode, setDocumentslistCustomProfileQuery]);
+  
   
   //access control managemant
   const [allowed, setAllowed] = useState(null);
@@ -213,6 +260,18 @@ export default function ProjectslistProfile({ dataIn = {}, dataOut = {} }) {
               
               {paramProjectslistUptoken && (
                 <>
+                
+                <MosyActionButton
+                label=" View Page"
+                icon="link"
+                onClick={()=>{viewPage(projectsNode)}}
+                />
+                
+                <MosyActionButton
+                label=" View payments"
+                icon="credit-card"
+                onClick={()=>{viewProjectPayments(projectsNode)}}
+                />
                 
               </>
             )}
@@ -280,6 +339,21 @@ export default function ProjectslistProfile({ dataIn = {}, dataOut = {} }) {
                 />
                 
                 
+                <div className="form-group col-md-4 hive_data_cell ">
+                  <label className="d-none">Contractor</label>
+                  
+                  <SmartDropdown
+                  apiEndpoint={apiRoutes.projectslist.base}
+                  idField="primkey"
+                  labelField="contractor"
+                  inputName="contractor"
+                  label="Contractor"
+                  onSelect={(val) => console.log('Selected:', val)}
+                  defaultValue={projectsNode?.contractor || ""}
+                  />
+                </div>
+                
+                
                 <MosySmartField
                 module="projects"
                 field="project_ref"
@@ -322,17 +396,19 @@ export default function ProjectslistProfile({ dataIn = {}, dataOut = {} }) {
                 />
                 
                 
-                <MosySmartField
-                module="projects"
-                field="currency"
-                label="Currency"
-                value={projectsNode?.currency || ""}
-                onChange={handleInputChange}
-                context={{ hostParent: hostParent  }}
-                inputOverrides={{}}
-                type="text"
-                cellOverrides={{additionalClass: "col-md-4 hive_data_cell "}}
-                />
+                <div className="form-group col-md-4 hive_data_cell ">
+                  <label className="d-none">Currency</label>
+                  
+                  <SmartDropdown
+                  apiEndpoint={apiRoutes.projectslist.base}
+                  idField="primkey"
+                  labelField="currency"
+                  inputName="currency"
+                  label="Currency"
+                  onSelect={(val) => console.log('Selected:', val)}
+                  defaultValue={projectsNode?.currency || ""}
+                  />
+                </div>
                 
               </div>
               
@@ -375,87 +451,173 @@ export default function ProjectslistProfile({ dataIn = {}, dataOut = {} }) {
                 cellOverrides={{additionalClass: "col-md-4 hive_data_cell "}}
                 />
                 
+                
+                {projectsNode?.primkey && (
+                  <div className="form-group col-md-4 hive_data_cell  ">
+                    <label >Documents</label>
+                    <div className="border border_set p-2 rounded_medium form-control pt-3" id="div_documents" name="div_documents" placeholder="Documents">{projectsNode?.documents || ""}</div>
+                  </div>)}
+                  
+                  {projectsNode?.primkey && (
+                    <div className="form-group col-md-4 hive_data_cell  ">
+                      <label >Steps</label>
+                      <div className="border border_set p-2 rounded_medium form-control pt-3" id="div_steps" name="div_steps" placeholder="Steps">{projectsNode?.steps || ""}</div>
+                    </div>)}
+                    
+                    {projectsNode?.primkey && (
+                      <div className="form-group col-md-4 hive_data_cell  ">
+                        <label >Total Payments</label>
+                        <div className="border border_set p-2 rounded_medium form-control pt-3" id="div_total_payments" name="div_total_payments" placeholder="Total Payments">{projectsNode?.total_payments || ""}</div>
+                      </div>)}
+                    </div>
+                    
+                  </div>
+                  
+                  <div className="col-md-11 bg-white border border_set shadow-md p-4 mb-4 hive_form_section  ">
+                    <h5 className="col-md-12 row p-2 justify-content-center p-0 m-0">
+                      <div className="col-md-3 bg-dark mb-3 mb-lg-0 mt-lg-3" style={{height: "1px"}}></div>
+                      <div className="col-md-5 text-center"></div>
+                      <div className="col-md-4 bg-dark mt-3" style={{height: "1px"}}></div>
+                    </h5>
+                    
+                    <div className="col-md-12 pt-3 p-0" id=""></div>
+                    
+                    <div className="row justify-content-start col-md-12 p-0 m-0 ">
+                      
+                      <MosySmartField
+                      module="projects"
+                      field="created_at"
+                      label="Created date"
+                      value={projectsNode?.created_at || ""}
+                      onChange={handleInputChange}
+                      context={{ hostParent: hostParent  }}
+                      inputOverrides={{}}
+                      type="datetime-local"
+                      cellOverrides={{additionalClass: "col-md-4 hive_data_cell "}}
+                      />
+                      
+                    </div>
+                    
+                    <div className="col-md-12 text-center">
+                      <SubmitButtons
+                      src="ProjectslistMainProfilePage"
+                      tblName="projects"
+                      extraClass="optional-custom-class"
+                      
+                      />
+                    </div>
+                  </div></div>
+                  {/*    Input cells section isle      */}
+                </div>
+                
+                <section className="hive_control">
+                  <input type="hidden" id="projects_dataNode" name="projects_dataNode" value={paramProjectslistUptoken}/>
+                  <input type="hidden" id="projects_mosy_action" name="projects_mosy_action" value={projectslistActionStatus}/>
+                </section>
+                
+                
               </div>
+              
+            </form>
+            
+            
+            <div className="row justify-content-center m-0 pr-lg-1 pl-lg-1 pt-0 col-md-12" id="">
+              {/*<hive_mini_list/>*/}
+              
+              {projectsNode?.primkey && (
+                <section className="col-md-12 m-0 bg-white pt-5 p-0 ">
+                  <h5 className="col-md-12 text-left  border-bottom pl-lg-1 text-muted mb-3"> {`Manage steps`} </h5>
+                  <ProjectstepslistProfile
+                  key={`${ projectstepslistCustomProfileQuery}-${localEventSignature}`}
+                  dataIn={{
+                    
+                    parentStateSetters : stateItemSetters,
+                    parentUseEffectKey : localEventSignature,
+                    showNavigationIsle:false,
+                    customQueryStr : projectstepslistCustomProfileQuery,
+                    hostParent : "ProjectslistProfile",
+                    parentProfileItemId : activeScrollId,
+                    customProfileData : {
+                      //inject profile data
+                      _projects_project_name_project_id  : projectsNode?.project_name,
+                      project_id : projectsNode?.record_id,
+                      client_id : projectsNode?.client_id,
+                      _clients_client_name_client_id : projectsNode?._clients_client_name_client_id
+                      
+                    }
+                    
+                  }}
+                  
+                  dataOut={{
+                    
+                    setChildDataOut: InteprateProjectstepslistEvent,
+                    setChildDataOutSignature: (sig) => console.log("Signature changed:", sig),
+                    
+                  }}
+                  />
+                  
+                </section>
+              )}
+              {projectsNode?.primkey && (
+                <section className="col-md-12 m-0 bg-white pt-5 p-0 ">
+                  <h5 className="col-md-12 text-left  border-bottom pl-lg-1 text-muted mb-3"> {`Manage documents`} </h5>
+                  <DocumentslistProfile
+                  key={`${ documentslistCustomProfileQuery}-${localEventSignature}`}
+                  dataIn={{
+                    
+                    parentStateSetters : stateItemSetters,
+                    parentUseEffectKey : localEventSignature,
+                    showNavigationIsle:false,
+                    customQueryStr : documentslistCustomProfileQuery,
+                    hostParent : "ProjectslistProfile",
+                    parentProfileItemId : activeScrollId,
+                    customProfileData : {
+                      //inject profile data
+                      _projects_project_name_project_id  : projectsNode?.project_name,
+                      project_id : projectsNode?.record_id,
+                      client_id : projectsNode?.client_id,
+                      _clients_client_name_client_id : projectsNode?._clients_client_name_client_id
+                      
+                    }
+                    
+                  }}
+                  
+                  dataOut={{
+                    
+                    setChildDataOut: InteprateDocumentslistEvent,
+                    setChildDataOutSignature: (sig) => console.log("Signature changed:", sig),
+                    
+                  }}
+                  />
+                  
+                </section>
+              )}
               
             </div>
-            
-            <div className="col-md-11 bg-white border border_set shadow-md p-4 mb-4 hive_form_section  ">
-              <h5 className="col-md-12 row p-2 justify-content-center p-0 m-0">
-                <div className="col-md-3 bg-dark mb-3 mb-lg-0 mt-lg-3" style={{height: "1px"}}></div>
-                <div className="col-md-5 text-center">System Information</div>
-                <div className="col-md-4 bg-dark mt-3" style={{height: "1px"}}></div>
-              </h5>
-              
-              <div className="col-md-12 pt-3 p-0" id=""></div>
-              
-              <div className="row justify-content-start col-md-12 p-0 m-0 ">
-                
-                <MosySmartField
-                module="projects"
-                field="created_at"
-                label="Created date"
-                value={projectsNode?.created_at || ""}
-                onChange={handleInputChange}
-                context={{ hostParent: hostParent  }}
-                inputOverrides={{}}
-                type="datetime-local"
-                cellOverrides={{additionalClass: "col-md-4 hive_data_cell "}}
-                />
-                
-              </div>
-              
-              <div className="col-md-12 text-center">
-                <SubmitButtons
-                src="ProjectslistMainProfilePage"
-                tblName="projects"
-                extraClass="optional-custom-class"
-                
-                />
-              </div>
-            </div></div>
-            {/*    Input cells section isle      */}
           </div>
-          
-          <section className="hive_control">
-            <input type="hidden" id="projects_dataNode" name="projects_dataNode" value={paramProjectslistUptoken}/>
-            <input type="hidden" id="projects_mosy_action" name="projects_mosy_action" value={projectslistActionStatus}/>
-          </section>
-          
-          
         </div>
         
-      </form>
-      
-      
-      <div className="row justify-content-center m-0 pr-lg-1 pl-lg-1 pt-0 col-md-12" id="">
-        {/*<hive_mini_list/>*/}
         
+        {/* snack notifications -- */}
+        {snackMessage &&(
+          <MosySnackWidget
+          content={snackMessage}
+          duration={5000}
+          type="custom"
+          onDone={() => {
+            stateItemSetters.setSnackMessage("");
+            stateItem.snackOnDone(); // Run whats inside onDone
+            deleteUrlParam("snack_alert")
+          }}
+          
+          />)}
+          {/* snack notifications -- */}
+          
+          
+          {/* ================== End Feature Section========================== ------*/}
+        </div>
         
-      </div>
-    </div>
-  </div>
-  
-  
-  {/* snack notifications -- */}
-  {snackMessage &&(
-    <MosySnackWidget
-    content={snackMessage}
-    duration={5000}
-    type="custom"
-    onDone={() => {
-      stateItemSetters.setSnackMessage("");
-      stateItem.snackOnDone(); // Run whats inside onDone
-      deleteUrlParam("snack_alert")
-    }}
+      );
+      
+    }
     
-    />)}
-    {/* snack notifications -- */}
-    
-    
-    {/* ================== End Feature Section========================== ------*/}
-  </div>
-  
-);
-
-}
-

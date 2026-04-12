@@ -24,7 +24,9 @@ const defaultProjectslistStateDefaults = {
   
   //dataScript
   projectslistCustomProfileQuery : '',
-  
+  projectstepslistCustomProfileQuery : ``,
+documentslistCustomProfileQuery : ``,
+
   
   // ... other base defaults
 };

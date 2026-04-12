@@ -196,7 +196,7 @@ Key relationships:
             "status" => "active,archived,pending"
          ],
 
-        "dynamic_drop_down_array" => ["doc_type"], 
+        "dynamic_drop_down_array" => ["doc_type","document_name"], 
         "password_columns" => [], 
         "title_columns" => [], 
         "date_columns" => [],
@@ -291,14 +291,14 @@ Key relationships:
 
   ///Ai Notes  append mini list for interlinked data eg farmers & collections dont remove commented code replace instead
   $interlink_lists=[
-  /* "projectDocuments"=>[ 
-     "filter_str"=>" project_id='\${documentsNode?.project_id}'  ",
-     "module_name"=>"Documents",
+   "projectDocuments"=>[ 
+     "filter_str"=>" {projectId:btoa(documentsNode?.project_id)}  ",
+     "module_name"=>"Documentslist",
      "list_title"=>"Project Documents",
      "custom"=>false,
-     "external"=>true,
+     "external"=>false,
      "alias"=>'documents'
-   ]*/
+   ]
   ];
    
   ///Ai Notes append mini profile for interlinked data dont remove commented code replace instead

@@ -37,13 +37,13 @@
                                         "type": "string",
                                         "description": "Client id"
                                     },
+                                    "contractor": {
+                                        "type": "string",
+                                        "description": "Contractor"
+                                    },
                                     "project_name": {
                                         "type": "string",
                                         "description": "Project name"
-                                    },
-                                    "project_ref": {
-                                        "type": "string",
-                                        "description": "Project ref"
                                     },
                                     "amount": {
                                         "type": "string",
@@ -64,6 +64,10 @@
                                     "created_at": {
                                         "type": "string",
                                         "description": "Created at"
+                                    },
+                                    "project_ref": {
+                                        "type": "string",
+                                        "description": "Project ref"
                                     }
                                 }
                             }
@@ -89,13 +93,13 @@
                                         "type": "string",
                                         "description": "Client id"
                                     },
+                                    "contractor": {
+                                        "type": "string",
+                                        "description": "Contractor"
+                                    },
                                     "project_name": {
                                         "type": "string",
                                         "description": "Project name"
-                                    },
-                                    "project_ref": {
-                                        "type": "string",
-                                        "description": "Project ref"
                                     },
                                     "amount": {
                                         "type": "string",
@@ -116,6 +120,10 @@
                                     "created_at": {
                                         "type": "string",
                                         "description": "Created at"
+                                    },
+                                    "project_ref": {
+                                        "type": "string",
+                                        "description": "Project ref"
                                     },
                                     "Node": {
                                         "type": "string",

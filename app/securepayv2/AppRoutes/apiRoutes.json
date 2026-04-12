@@ -1,6 +1,6 @@
 {
     "smartapi": {
-        "base": "/api/octanev4/smartapi"
+        "base": "/api/securepayv2/smartapi"
     },
     "dashboard": {
         "admin": "/api/octanev4/saleshistory/dashboard/admin",
@@ -32,5 +32,8 @@
         "base": "/api/securepayv2/projectsteps/projectstepslist",
         "delete": "/api/securepayv2/projectsteps/delete",
         "import": "/api/securepayv2/projectsteps/projectstepslist/import"
+    },
+    "clientportal": {
+        "base": "/api/securepayv2/clientportal"
     }
 }

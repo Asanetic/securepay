@@ -162,41 +162,35 @@ export default function PaymentslistList({ dataIn = {}, dataOut = {} }) {
       
       <div className="table-responsive  data-tables bottom_tbl_handler">
         
-        <div className="ml-2 cpointer badge p-2 rounded badge-danger mb-3 text-white d-none mosy_msdn" id="mosy_sel_rows_isle" onClick={()=>{loadPayments()}}>
-        <i className="fa fa-info-circle mr-2"></i> With (<span id="mosy_sel_rows_count"></span>) selected items | Click for actions
-        <input type="hidden" id="mosy_selected_rows" name="mosy_selected_rows" value=""/>
-      </div>
-      
-      
-      <div className="text-left m-0 p-0 col-md-12">
-        <div className="ml-2 cpointer badge btn_neo p-2 rounded badge-primary mb-3 tbl_print_btn"
-        onClick={() => {mosyPrintToPdf({elemId : "payments_print_card", defaultTitle:"Payments list"})}}
+        
+        <div className="text-left m-0 p-0 col-md-12">
+          <div className="ml-2 cpointer badge btn_neo p-2 rounded badge-primary mb-3 tbl_print_btn"
+          onClick={() => {mosyPrintToPdf({elemId : "payments_print_card", defaultTitle:"Payments list"})}}
+          >
+          <i className="fa fa-print "></i> Print List
+        </div>
+        <div className="cpointer p-2 ml-2 badge rounded border border_set badge-whte mb-3 tbl_print_to_excel_btn"
+        
+        onClick={() => exportTableToExcel("payments_data_table", "Payments list.xlsx")}
         >
-        <i className="fa fa-print "></i> Print List
+        <i className="fa fa-arrow-right "></i> Export to excel
       </div>
-      <div className="cpointer p-2 ml-2 badge rounded border border_set badge-whte mb-3 tbl_print_to_excel_btn"
-      
-      onClick={() => exportTableToExcel("payments_data_table", "Payments list.xlsx")}
-      >
-      <i className="fa fa-arrow-right "></i> Export to excel
     </div>
-  </div>
-  <div className="col-md-12 m-0 p-0" id="payments_print_card">
-    <table className="table table-hover  text-left printTarget" id="payments_data_table">
-      <thead className="text-uppercase">
-        <tr>
-          <th scope="col">
-            
-            <input type="checkbox" className="mosy_msdn mr-3 cpointer" id="selectAllCheckboxId" onClick={()=>{mosyToggleSelectAllTblRows();mosySelectTblRows()}}/>
-            #</th>
+    <div className="col-md-12 m-0 p-0" id="payments_print_card">
+      <table className="table table-hover  text-left printTarget" id="payments_data_table">
+        <thead className="text-uppercase">
+          <tr>
+            <th scope="col">#</th>
             
             <th scope="col"><b>Project</b></th>
             <th scope="col"><b>Client</b></th>
             <th scope="col"><b>Amount</b></th>
             <th scope="col"><b>Payment Method</b></th>
+            <th scope="col"><b>Transaction Code</b></th>
             <th scope="col"><b>Payer Name</b></th>
             <th scope="col"><b>Status</b></th>
             <th scope="col"><b>Payment date</b></th>
+            <th scope="col"><b>Bill Ref No</b></th>
             
           </tr>
           
@@ -205,7 +199,7 @@ export default function PaymentslistList({ dataIn = {}, dataOut = {} }) {
           {stateItem.paymentslistLoading ? (
             <tr>
               <th scope="col">#</th>
-              <td colSpan="8" className="text-muted">
+              <td colSpan="10" className="text-muted">
                 <h5 className="col-md-12 text-center p-3 mb-5 text-muted"><i className="fa fa-spinner fa-spin"></i> Loading Payments list ...</h5>
               </td>
             </tr>
@@ -221,7 +215,6 @@ export default function PaymentslistList({ dataIn = {}, dataOut = {} }) {
                       <div className="table_cell_dropdown">
                         <div className="table_cell_dropbtn">
                           
-                          <input type="checkbox" className="select-row mosy_msdn mr-3 cpointer" onClick={()=>{mosySelectTblRows()}} value={listpayments_result.primkey}/>
                           <b>{listpayments_result.row_count}</b></div>
                           <div className="table_cell_dropdown-content">
                             <MosySmartDropdownActions
@@ -246,9 +239,11 @@ export default function PaymentslistList({ dataIn = {}, dataOut = {} }) {
                       <td scope="col"><span title={listpayments_result.client_id}>{magicTrimText(listpayments_result._clients_client_name_client_id, 70)}</span></td>
                       <td scope="col"><span>{mosyTonum(listpayments_result.amount)}</span></td>
                       <td scope="col"><span title={listpayments_result.payment_method}>{magicTrimText(listpayments_result.payment_method, 70)}</span></td>
+                      <td scope="col"><span title={listpayments_result.transaction_code}>{magicTrimText(listpayments_result.transaction_code, 70)}</span></td>
                       <td scope="col"><span title={listpayments_result.payer_name}>{magicTrimText(listpayments_result.payer_name, 70)}</span></td>
                       <td scope="col"><span title={listpayments_result.status}>{magicTrimText(listpayments_result.status, 70)}</span></td>
                       <td scope="col"><span title={listpayments_result.paid_at}>{mosyFormatDateOnly(listpayments_result.paid_at)}</span></td>
+                      <td scope="col"><span title={listpayments_result.bill_ref_no}>{magicTrimText(listpayments_result.bill_ref_no, 70)}</span></td>
                       
                     </tr>
                     
@@ -259,7 +254,7 @@ export default function PaymentslistList({ dataIn = {}, dataOut = {} }) {
                 
               ) : (
                 
-                <tr><td colSpan="8" className="text-muted">
+                <tr><td colSpan="10" className="text-muted">
                   
                   
                   <div className="col-md-12 text-center mt-4">
@@ -278,6 +273,8 @@ export default function PaymentslistList({ dataIn = {}, dataOut = {} }) {
                 <th scope="col"><b></b></th>
                 <th scope="col"><b></b></th>
                 <th scope="col"><b><span>{mosyTonum(sumpayments_amount)}</span></b></th>
+                <th scope="col"><b></b></th>
+                <th scope="col"><b></b></th>
                 <th scope="col"><b></b></th>
                 <th scope="col"><b></b></th>
                 <th scope="col"><b></b></th>

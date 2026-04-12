@@ -125,16 +125,40 @@ Key relationships:
 
         // Extra table columns dont use for now 
         "custom_tbl_cols" => [
-           //"projects" => ["total_payments","total_expenses"]
+           "projects" => ["documents","steps","total_payments"]
         ],
 
         // Default values for profile | dont use for now
         "custom_profile_default_data" => [
             //"status" => "checkblank(getarr_val_(\$projects_node,'status'),'pending')"
         ],
+//Table name : project_steps
+
+// columns : "primkey" , "record_id" , "project_id" , "step_name" , "step_status" , "step_order" , "notes" , "created_at" , "hive_site_id" , "hive_site_name" , 
+//Table name : payments
+
+// columns : "primkey" , "record_id" , "project_id" , "client_id" , "amount" , "payment_method" , "transaction_code" , "payer_name" , "payer_phone" , "status" , "paid_at" , "created_at" , "hive_site_id" , "hive_site_name" , "bill_ref_no" , 
+
+
 
         "dataRowMutations"=>[
+           "documents" => [
+                        "type" => "count",
+                        "table" => "documents",
+                        "link"  => "project_id:record_id"                        
+                    ],
 
+           "steps" => [
+                        "type" => "count",
+                        "table" => "project_steps",
+                        "link"  => "project_id:record_id"                       
+                    ],  
+             "total_payments" => [
+                          "type" => "sum",
+                          "table" => "payments",
+                          "link"  => "project_id:record_id",
+                          "column" => "amount"
+                      ],          
          /* "total_payments" => [
               "type" => "sum",
               "table" => "payments",
@@ -158,6 +182,10 @@ Key relationships:
       
     ],
 
+//Table name : projects
+
+// columns : "primkey" , "record_id" , "client_id" , "project_name" , "project_ref" , "amount" , "currency" , "status" , "progress_percent" , "created_at" , "hive_site_id" , "hive_site_name" , "contractor" , 
+
 
     // =========================
     // UI schema section
@@ -166,15 +194,14 @@ Key relationships:
 
         // Column order
         "desired_column_order" => [
-            "projects" => ["primkey","record_id","client_id","project_name","project_ref","amount","currency","status","progress_percent","created_at"]
+            "projects" => ["primkey","record_id","client_id","contractor","project_name","documents","steps","total_payments","amount","currency","status","progress_percent","created_at"]
         ],
 
         // Grouped inputs
         "form_input_segmentation_arr" => [
             "projects" => [
-                "Project Details" => ["project_name","project_ref","client_id","amount","currency"],
-                "Status & Progress" => ["status","progress_percent"],
-                "System Information" => ["created_at"]
+                "Project Details" => ["project_name","contractor","project_ref","client_id","amount","currency"],
+                "Status & Progress" => ["status","progress_percent","documents","steps","total_payments"]
             ]
         ],
 
@@ -196,7 +223,7 @@ Key relationships:
             "status" => "active,completed,on-hold,cancelled"
         ],
 
-        "dynamic_drop_down_array" => [], 
+        "dynamic_drop_down_array" => ["contractor","currency"], 
         "password_columns" => [], 
         "title_columns" => [], 
         "date_columns" => [],
@@ -243,7 +270,7 @@ Key relationships:
         ], 
       
         "custom_profile_col_data" => [
-          //"total_payments"=>"?","total_expenses"=>"?","balance"=>"?"
+          "documents"=>"?","steps"=>"?","total_payments"=>"?"
         ], 
       
         "custom_profile_default_data" => [],
@@ -268,20 +295,24 @@ Key relationships:
   /// Ai Notes buttons you want on the profile /form page dont remove commented code replace instead
   $profile_btn_table_array=[
       $primary_table__=>[
-         /*"chart-line: View Progress" => [
-             "fe" => "viewProjectProgress(projectsNode)",
-             "file" => "project-progress"
-         ]*/        
+         "link: View Page" => [
+             "fe" => "viewPage(projectsNode)",
+             "file" => "project-view"
+         ],
+         "credit-card: View payments" => [
+             "fe" => "viewProjectPayments(projectsNode)",
+             "file" => "project-view"
+         ]         
       ],
   ];
 
   ////Ai Notes  on each row you add more actions eg, view collections, send message dont remove commented code replace instead
   $global_new_drop_down_link_arr = [
         $primary_table__=>[
-         /*"eye: View Details" => [
-             "fe" => "viewProjectDetails(listprojects_result.record_id)",
-             "file" => "project-details"
-         ]*/        
+         "credit-card: View payments" => [
+             "fe" => "viewProjectPayments(listprojects_result)",
+             "file" => "project-view"
+         ]
       ]
   ];
 
@@ -300,19 +331,35 @@ Key relationships:
   ///Ai Notes append mini profile for interlinked data dont remove commented code replace instead
   $interlink_profile=[
    
-   /*"linkedClient"=>[ 
-     "filter_str"=>"record_id='{projectsNode?.client_id}'",
-     "module_name"=>"Clients",
-     "profile_title"=>"Client Details",
+   "linkedClient"=>[ 
+     "filter_str"=>"{projectId:btoa(projectsNode?.record_id)}",
+     "module_name"=>"Projectstepslist",
+     "profile_title"=>"Manage steps",
      "custom"=>false,
      "external"=>true,
-     "alias"=>'clients'
-   ]*/
+     "alias"=>'projectsteps'
+   ],
+    
+   "linkedDocsClient"=>[ 
+     "filter_str"=>" {projectId:btoa(projectsNode?.record_id)}",
+     "module_name"=>"Documentslist",
+     "profile_title"=>"Manage documents",
+     "custom"=>false,
+     "external"=>true,
+     "alias"=>'documents'
+   ]    
    
   ];  
 
   ///for interlinked data included as component
-  $customProfileData="{}";
+  $customProfileData="{
+  //inject profile data 
+   _projects_project_name_project_id  : projectsNode?.project_name,
+   project_id : projectsNode?.record_id,
+   client_id : projectsNode?.client_id,
+   _clients_client_name_client_id : projectsNode?._clients_client_name_client_id
+   
+  }";
 
   ///=================================== basic template setup 
 

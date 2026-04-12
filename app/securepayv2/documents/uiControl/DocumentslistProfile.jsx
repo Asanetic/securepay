@@ -49,7 +49,7 @@ import { getApiRoutes } from '../../AppRoutes/apiRoutesHandler';
 // Use default base root (/)
 const apiRoutes = getApiRoutes();
 
-
+import DocumentslistList from './DocumentslistList';
 // ════════════════════════════════════════════════════════════════
 // PROFILE PAGE FUNCTION IMPORTS
 // ════════════════════════════════════════════════════════════════
@@ -289,17 +289,19 @@ export default function DocumentslistProfile({ dataIn = {}, dataOut = {} }) {
               
               <div className="row justify-content-start col-md-12 p-0 m-0 ">
                 
-                <MosySmartField
-                module="documents"
-                field="document_name"
-                label="File name"
-                value={documentsNode?.document_name || ""}
-                onChange={handleInputChange}
-                context={{ hostParent: hostParent  }}
-                inputOverrides={{}}
-                type="text"
-                cellOverrides={{additionalClass: "col-md-8"}}
-                />
+                <div className="form-group col-md-8">
+                  <label className="d-none">File name</label>
+                  
+                  <SmartDropdown
+                  apiEndpoint={apiRoutes.documentslist.base}
+                  idField="primkey"
+                  labelField="document_name"
+                  inputName="document_name"
+                  label="File name"
+                  onSelect={(val) => console.log('Selected:', val)}
+                  defaultValue={documentsNode?.document_name || ""}
+                  />
+                </div>
                 
                 
                 <div className="form-group col-md-4">
@@ -431,30 +433,67 @@ export default function DocumentslistProfile({ dataIn = {}, dataOut = {} }) {
         {/*<hive_mini_list/>*/}
         
         
-      </div>
+        
+        <style jsx global>{`
+        .data_list_section {
+          display: none;
+        }
+        .bottom_tbl_handler{
+          padding-bottom:70px!important;
+        }
+        `}
+      </style>
+      {documentsNode?.primkey && (
+        <section className="col-md-12 m-0  pt-5 p-0 ">
+          <h5 className="col-md-12 text-left  border-bottom pl-lg-1 text-muted mb-3"> {`Project Documents`} </h5>
+          
+          <div className="col-md-12 p-2 text-right ">
+            <a href={`./list?documents_mosyfilter=${btoa(` {projectId:btoa(documentsNode?.project_id)}  `)}`} className="cpointer"> View More  <i className="fa fa-arrow-right "></i></a>
+          </div>
+          
+          <DocumentslistList
+          key={`${customQueryStr}-${localEventSignature}`}
+          dataIn={{
+            parentStateSetters : stateItemSetters,
+            parentUseEffectKey : localEventSignature,
+            showNavigationIsle:false,
+            showDataControlSections:false,
+            customQueryStr :  {projectId:btoa(documentsNode?.project_id)}  ,
+            customProfilePath:""
+            
+          }}
+          
+          dataOut={{
+            setChildDataOut: InteprateDocumentslistEvent,
+            setChildDataOutSignature: (sig) => console.log("Signature changed:", sig),
+          }}
+          />
+        </section>
+      )}
     </div>
   </div>
+</div>
+
+
+{/* snack notifications -- */}
+{snackMessage &&(
+  <MosySnackWidget
+  content={snackMessage}
+  duration={5000}
+  type="custom"
+  onDone={() => {
+    stateItemSetters.setSnackMessage("");
+    stateItem.snackOnDone(); // Run whats inside onDone
+    deleteUrlParam("snack_alert")
+  }}
   
-  
+  />)}
   {/* snack notifications -- */}
-  {snackMessage &&(
-    <MosySnackWidget
-    content={snackMessage}
-    duration={5000}
-    type="custom"
-    onDone={() => {
-      stateItemSetters.setSnackMessage("");
-      stateItem.snackOnDone(); // Run whats inside onDone
-      deleteUrlParam("snack_alert")
-    }}
-    
-    />)}
-    {/* snack notifications -- */}
-    
-    
-    {/* ================== End Feature Section========================== ------*/}
-  </div>
   
+  
+  {/* ================== End Feature Section========================== ------*/}
+</div>
+
 );
 
 }

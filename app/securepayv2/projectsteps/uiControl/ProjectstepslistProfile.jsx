@@ -49,7 +49,7 @@ import { getApiRoutes } from '../../AppRoutes/apiRoutesHandler';
 // Use default base root (/)
 const apiRoutes = getApiRoutes();
 
-
+import ProjectstepslistList from './ProjectstepslistList';
 // ════════════════════════════════════════════════════════════════
 // PROFILE PAGE FUNCTION IMPORTS
 // ════════════════════════════════════════════════════════════════
@@ -281,21 +281,21 @@ export default function ProjectstepslistProfile({ dataIn = {}, dataOut = {} }) {
                 onInputChange={handleInputChange}
                 defaultColSize="col-md-4 hive_data_cell "
                 context={{hostParent : hostParent}}
-                customDisplay={`{{project_name}} - {{_clients_client_name_client_id}} @ {{amount}}`}
-                
                 />
                 
-                <MosySmartField
-                module="project_steps"
-                field="step_name"
-                label="Step Name"
-                value={project_stepsNode?.step_name || ""}
-                onChange={handleInputChange}
-                context={{ hostParent: hostParent  }}
-                inputOverrides={{}}
-                type="text"
-                cellOverrides={{additionalClass: "col-md-4 hive_data_cell "}}
-                />
+                <div className="form-group col-md-4 hive_data_cell ">
+                  <label className="d-none">Step Name</label>
+                  
+                  <SmartDropdown
+                  apiEndpoint={apiRoutes.projectstepslist.base}
+                  idField="primkey"
+                  labelField="step_name"
+                  inputName="step_name"
+                  label="Step Name"
+                  onSelect={(val) => console.log('Selected:', val)}
+                  defaultValue={project_stepsNode?.step_name || ""}
+                  />
+                </div>
                 
                 
                 <div className="form-group col-md-4 hive_data_cell ">
@@ -312,17 +312,19 @@ export default function ProjectstepslistProfile({ dataIn = {}, dataOut = {} }) {
                 </div>
                 
                 
-                <MosySmartField
-                module="project_steps"
-                field="step_order"
-                label="Step Order"
-                value={project_stepsNode?.step_order || ""}
-                onChange={handleInputChange}
-                context={{ hostParent: hostParent  }}
-                inputOverrides={{}}
-                type="text"
-                cellOverrides={{additionalClass: "col-md-4 hive_data_cell "}}
-                />
+                <div className="form-group col-md-4 hive_data_cell ">
+                  <label className="d-none">Step Order</label>
+                  
+                  <SmartDropdown
+                  apiEndpoint={apiRoutes.projectstepslist.base}
+                  idField="primkey"
+                  labelField="step_order"
+                  inputName="step_order"
+                  label="Step Order"
+                  onSelect={(val) => console.log('Selected:', val)}
+                  defaultValue={project_stepsNode?.step_order || ""}
+                  />
+                </div>
                 
               </div>
               
@@ -397,30 +399,67 @@ export default function ProjectstepslistProfile({ dataIn = {}, dataOut = {} }) {
         {/*<hive_mini_list/>*/}
         
         
-      </div>
+        
+        <style jsx global>{`
+        .data_list_section {
+          display: none;
+        }
+        .bottom_tbl_handler{
+          padding-bottom:70px!important;
+        }
+        `}
+      </style>
+      {project_stepsNode?.primkey && (
+        <section className="col-md-12 m-0  pt-5 p-0 ">
+          <h5 className="col-md-12 text-left  border-bottom pl-lg-1 text-muted mb-3"> {`Project Steps`} </h5>
+          
+          <div className="col-md-12 p-2 text-right ">
+            <a href={`./list?project_steps_mosyfilter=${btoa(` {projectId:btoa(project_stepsNode?.project_id)} `)}`} className="cpointer"> View More  <i className="fa fa-arrow-right "></i></a>
+          </div>
+          
+          <ProjectstepslistList
+          key={`${customQueryStr}-${localEventSignature}`}
+          dataIn={{
+            parentStateSetters : stateItemSetters,
+            parentUseEffectKey : localEventSignature,
+            showNavigationIsle:false,
+            showDataControlSections:false,
+            customQueryStr :  {projectId:btoa(project_stepsNode?.project_id)} ,
+            customProfilePath:""
+            
+          }}
+          
+          dataOut={{
+            setChildDataOut: InteprateProjectstepslistEvent,
+            setChildDataOutSignature: (sig) => console.log("Signature changed:", sig),
+          }}
+          />
+        </section>
+      )}
     </div>
   </div>
+</div>
+
+
+{/* snack notifications -- */}
+{snackMessage &&(
+  <MosySnackWidget
+  content={snackMessage}
+  duration={5000}
+  type="custom"
+  onDone={() => {
+    stateItemSetters.setSnackMessage("");
+    stateItem.snackOnDone(); // Run whats inside onDone
+    deleteUrlParam("snack_alert")
+  }}
   
-  
+  />)}
   {/* snack notifications -- */}
-  {snackMessage &&(
-    <MosySnackWidget
-    content={snackMessage}
-    duration={5000}
-    type="custom"
-    onDone={() => {
-      stateItemSetters.setSnackMessage("");
-      stateItem.snackOnDone(); // Run whats inside onDone
-      deleteUrlParam("snack_alert")
-    }}
-    
-    />)}
-    {/* snack notifications -- */}
-    
-    
-    {/* ================== End Feature Section========================== ------*/}
-  </div>
   
+  
+  {/* ================== End Feature Section========================== ------*/}
+</div>
+
 );
 
 }

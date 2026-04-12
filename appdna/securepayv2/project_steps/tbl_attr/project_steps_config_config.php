@@ -184,7 +184,7 @@ Key relationships:
             "step_status" => "pending,in-progress,completed,blocked"
         ],
 
-        "dynamic_drop_down_array" => [], 
+        "dynamic_drop_down_array" => ["step_name","step_order"], 
         "password_columns" => [], 
         "title_columns" => [], 
         "date_columns" => [],
@@ -275,14 +275,14 @@ Key relationships:
 
   ///Ai Notes  append mini list for interlinked data eg farmers & collections dont remove commented code replace instead
   $interlink_lists=[
-  /* "projectSteps"=>[ 
-     "filter_str"=>" project_id='\${project_stepsNode?.project_id}'  ",
-     "module_name"=>"ProjectSteps",
+   "projectSteps"=>[ 
+     "filter_str"=>" {projectId:btoa(project_stepsNode?.project_id)} ",
+     "module_name"=>"Projectstepslist",
      "list_title"=>"Project Steps",
      "custom"=>false,
-     "external"=>true,
-     "alias"=>'project_steps'
-   ]*/
+     "external"=>false,
+     "alias"=>'projectsteps'
+   ]
   ];
    
   ///Ai Notes append mini profile for interlinked data dont remove commented code replace instead

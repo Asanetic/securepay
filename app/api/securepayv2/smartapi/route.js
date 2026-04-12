@@ -1,6 +1,9 @@
 // app/api/smartapi/route.js
 
 import { processAuthToken } from "../../auth/authManager";
+import { promptMobileStk } from "../clientportal/utils/prompt-payment";
+import { updateProjectPayment } from "../clientportal/utils/update-projectdetails";
+import { updateProjectstatus } from "../clientportal/utils/client-actions";
 
 // ================================
 // ACTION HANDLERS (REGISTER HERE)
@@ -8,7 +11,9 @@ import { processAuthToken } from "../../auth/authManager";
 
 // One map. One truth.
 const ACTIONS = {
-
+  promptMobileStk,
+  updateProjectPayment,
+  updateProjectstatus
 };
 // ================================
 // UTILS

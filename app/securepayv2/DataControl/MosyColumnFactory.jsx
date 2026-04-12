@@ -22,7 +22,7 @@ const MosyColumnFactory = {
   project_steps: ["record_id", "project_id", "step_name", "step_status", "step_order", "notes", "created_at", "hive_site_id", "hive_site_name"],
 
    //-- projects cols--//
-  projects: ["record_id", "client_id", "project_name", "project_ref", "amount", "currency", "status", "progress_percent", "created_at", "hive_site_id", "hive_site_name"],
+  projects: ["record_id", "client_id", "project_name", "project_ref", "amount", "currency", "status", "progress_percent", "created_at", "hive_site_id", "hive_site_name", "contractor"],
 
    //-- system_module_manifest_ cols--//
   system_module_manifest_: ["record_id", "component_name", "module_key", "module_name", "permission_type", "capability_key", "access_name", "relative_path", "hive_site_id", "hive_site_name"],

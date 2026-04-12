@@ -58,6 +58,11 @@ const apiRoutes = getApiRoutes();
 // ════════════════════════════════════════════════════════════════
 // LIST PAGE FUNCTION IMPORTS
 // ════════════════════════════════════════════════════════════════
+// Imports from project-view.jsx
+import {
+  viewProjectPayments
+} from '../logicControl/project-view';
+
 
 
 //export list
@@ -183,13 +188,17 @@ export default function ProjectslistList({ dataIn = {}, dataOut = {} }) {
             <th scope="col">#</th>
             
             <th scope="col"><b>Client</b></th>
+            <th scope="col"><b>Contractor</b></th>
             <th scope="col"><b>Project Name</b></th>
-            <th scope="col"><b>Project Ref</b></th>
+            <th scope="col"><b>Documents</b></th>
+            <th scope="col"><b>Steps</b></th>
+            <th scope="col"><b>Total Payments</b></th>
             <th scope="col"><b>Amount</b></th>
             <th scope="col"><b>Currency</b></th>
             <th scope="col"><b>Status</b></th>
             <th scope="col"><b>Progress Percent</b></th>
             <th scope="col"><b>Created date</b></th>
+            <th scope="col"><b>Project Ref</b></th>
             
           </tr>
           
@@ -198,7 +207,7 @@ export default function ProjectslistList({ dataIn = {}, dataOut = {} }) {
           {stateItem.projectslistLoading ? (
             <tr>
               <th scope="col">#</th>
-              <td colSpan="9" className="text-muted">
+              <td colSpan="13" className="text-muted">
                 <h5 className="col-md-12 text-center p-3 mb-5 text-muted"><i className="fa fa-spinner fa-spin"></i> Loading Projects list ...</h5>
               </td>
             </tr>
@@ -230,18 +239,30 @@ export default function ProjectslistList({ dataIn = {}, dataOut = {} }) {
                             
                             />
                             
+                            <MosyGridRowOptions
+                            src="ProjectslistList"
+                            action="_view_payments"
+                            label=" View payments"
+                            icon="credit-card"
+                            dataIn={() => viewProjectPayments(listprojects_result)}   // only runs on click now
+                            callBack={(incomingRequest) => {setChildDataOut(incomingRequest) }}
+                            />
                           </div>
                         </div>
                       </td>
                       
                       <td scope="col"><span title={listprojects_result.client_id}>{magicTrimText(listprojects_result._clients_client_name_client_id, 70)}</span></td>
+                      <td scope="col"><span title={listprojects_result.contractor}>{magicTrimText(listprojects_result.contractor, 70)}</span></td>
                       <td scope="col"><span title={listprojects_result.project_name}>{magicTrimText(listprojects_result.project_name, 70)}</span></td>
-                      <td scope="col"><span title={listprojects_result.project_ref}>{magicTrimText(listprojects_result.project_ref, 70)}</span></td>
+                      <td scope="col"><span title={listprojects_result.documents}>{magicTrimText(listprojects_result.documents, 70)}</span></td>
+                      <td scope="col"><span title={listprojects_result.steps}>{magicTrimText(listprojects_result.steps, 70)}</span></td>
+                      <td scope="col"><span title={listprojects_result.total_payments}>{magicTrimText(listprojects_result.total_payments, 70)}</span></td>
                       <td scope="col"><span>{mosyTonum(listprojects_result.amount)}</span></td>
                       <td scope="col"><span title={listprojects_result.currency}>{magicTrimText(listprojects_result.currency, 70)}</span></td>
                       <td scope="col"><span title={listprojects_result.status}>{magicTrimText(listprojects_result.status, 70)}</span></td>
                       <td scope="col"><span title={listprojects_result.progress_percent}>{magicTrimText(listprojects_result.progress_percent, 70)}</span></td>
                       <td scope="col"><span title={listprojects_result.created_at}>{mosyFormatDateTime(listprojects_result.created_at)}</span></td>
+                      <td scope="col"><span title={listprojects_result.project_ref}>{magicTrimText(listprojects_result.project_ref, 70)}</span></td>
                       
                     </tr>
                     
@@ -252,7 +273,7 @@ export default function ProjectslistList({ dataIn = {}, dataOut = {} }) {
                 
               ) : (
                 
-                <tr><td colSpan="9" className="text-muted">
+                <tr><td colSpan="13" className="text-muted">
                   
                   
                   <div className="col-md-12 text-center mt-4">
@@ -271,7 +292,11 @@ export default function ProjectslistList({ dataIn = {}, dataOut = {} }) {
                 <th scope="col"><b></b></th>
                 <th scope="col"><b></b></th>
                 <th scope="col"><b></b></th>
+                <th scope="col"><b></b></th>
+                <th scope="col"><b></b></th>
+                <th scope="col"><b></b></th>
                 <th scope="col"><b><span>{mosyTonum(sumprojects_amount)}</span></b></th>
+                <th scope="col"><b></b></th>
                 <th scope="col"><b></b></th>
                 <th scope="col"><b></b></th>
                 <th scope="col"><b></b></th>

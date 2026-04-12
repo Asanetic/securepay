@@ -1,5 +1,6 @@
 export default function Navbar() {
     return (
+      
       <nav className="elforge_mosy_nav_v1">
         <div className="d-flex align-items-center justify-content-between">
           <div className="elforge_mosy_nav_brand_v1">
@@ -11,5 +12,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+      
     );
   }
