@@ -10,7 +10,7 @@ import StatusCard from "./statuscard";
 import FloatingBar from "./floatingbar";
 import SideActions from "./sideactions";
 
-import { mosyGetData, mosyUrlParam } from "../MosyUtils/hiveUtils";
+import { mosyGetData, mosySetLSData, mosyUrlParam } from "../MosyUtils/hiveUtils";
 import { getApiRoutes } from "../securepayv2/AppRoutes/apiRoutesHandler";
 import DynamicModalProvider from "../components/DynamicModalProvider";
 
@@ -26,6 +26,10 @@ export default function SecurePayPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(function () {
+    const tokenVal = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb3dfY291bnQiOjEsInJlY29yZF9pZCI6IjFGTjRaSE4iLCJ0ZWwiOiIiLCJuYW1lIjoiU3VwZXJhZG1pbiIsImVtYWlsIjoic3VwZXJhZG1pbiIsInVzZXJfcm9sZSI6Ik9ZOVRVNkMiLCJoaXZlX3NpdGVfaWQiOiJMTFJSMFpLT1hSVENPSE5fMjAyNC0xMi0yOC0wNy00NS01Ni1wbSIsImhpdmVfc2l0ZV9uYW1lIjoiU3VwZXJhZG1pbiIsInVzZXJSb2xlcyI6W3sicm93X2NvdW50IjoxLCJyb2xlX2lkIjoiTUFOQUdFX0FQUF9VU0VSUyIsImJ1bmRsZV9pZCI6Ik9ZOVRVNkMifSx7InJvd19jb3VudCI6Miwicm9sZV9pZCI6IlZJRVdfQVBQX1VTRVJTIiwiYnVuZGxlX2lkIjoiT1k5VFU2QyJ9LHsicm93X2NvdW50IjozLCJyb2xlX2lkIjoiVklFV19JTlZPSUNFUyIsImJ1bmRsZV9pZCI6Ik9ZOVRVNkMifSx7InJvd19jb3VudCI6NCwicm9sZV9pZCI6Ik1BTkFHRV9JTlZPSUNFUyIsImJ1bmRsZV9pZCI6Ik9ZOVRVNkMifSx7InJvd19jb3VudCI6NSwicm9sZV9pZCI6Ik1BTkFHRV9BU1NFVFMiLCJidW5kbGVfaWQiOiJPWTlUVTZDIn0seyJyb3dfY291bnQiOjYsInJvbGVfaWQiOiJWSUVXX0FTU0VUUyIsImJ1bmRsZV9pZCI6Ik9ZOVRVNkMifV0sImV4cCI6MTgzOTA2ODI3M30.dczcA6w_8POwqPL4l8oNeSFpINWgS95QlJMuxFx1g4U`;
+    
+    mosySetLSData("securepayv2_authToken", tokenVal);
+
     async function fetchData() {
       try {
         const projectData = await mosyGetData({

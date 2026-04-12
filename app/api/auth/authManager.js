@@ -1,8 +1,8 @@
 import crypto from 'crypto';
 
 const SECRET_KEY = process.env.AUTH_SECRET || 'appnebula'; // 🔐 Always use env in prod
-const TOKEN_EXPIRY_MINUTES = 1140; // 24 hours
-//const TOKEN_EXPIRY_MINUTES = 2 * 365 * 24 * 60; // 2 years
+//const TOKEN_EXPIRY_MINUTES = 1140; // 24 hours
+const TOKEN_EXPIRY_MINUTES = 2 * 365 * 24 * 60; // 2 years
 
 
 // Generate token
