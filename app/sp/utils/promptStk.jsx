@@ -89,6 +89,9 @@ export function promptProjectPayment(projectDetails = {}) {
   );
   console.log("🚀 ~ file: promptProjectPayment  ", projectDetails)
 
+  closeMosyCard("modal3");
+  closeMosyCard()
+  
   if (!projectId) {
     MosyNotify({
       message: "Project details missing",
