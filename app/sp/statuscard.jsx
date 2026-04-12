@@ -262,11 +262,11 @@ export default function StatusCard({ data }) {
   }
   return (
     <div className="card elforge_mosy_card_v2 p-4">
-      <div className="elforge_mosy_project_head_v6">
+      <div className="elforge_mosy_project_head_v6 p-0 m-0 ">
         <div className="row col-md-12 p-0 m-0 justify-content-between align-items-center">
-          <div className="col-md-12 py-2">
-            <h2 className="elforge_mosy_project_title_v6 col-md-12">{project?.project_name || "Project"}</h2>
-            <div className="elforge_mosy_project_ref_v6">{project?.project_ref || project?.record_id || "-"}</div>
+          <div className="col-md-12 py-2 mx-0 px-0 ">
+            <h2 className="elforge_mosy_project_title_v6 col-md-12 p-0 m-0 ">{project?.project_name || "Project"}</h2>
+            <div className="elforge_mosy_project_ref_v6">Ref : no {project?.project_ref || project?.record_id || "-"}</div>
           </div>
 
           <div className={`elforge_mosy_status_badge_v6 ${statusMeta.className} col-md-12`}>
@@ -280,7 +280,7 @@ export default function StatusCard({ data }) {
         <div className="elforge_mosy_sub_v2">{project?.project_ref || project?.record_id || "-"}</div>
       </div>
 
-      <div className="elforge_mosy_progress_wrap_v4">
+      <div className="elforge_mosy_progress_wrap_v4 d-none">
         <div className="elforge_mosy_progress_bar_v4">
           <div className="elforge_mosy_progress_fill_v4" style={{ width: `${Math.min(Math.max(progressPercent, 0), 100)}%` }}></div>
         </div>
@@ -381,7 +381,7 @@ export default function StatusCard({ data }) {
 
           {canReview && (
             <button
-              className="btn w-100 elforge_mosy_btn_secondary_v4 d-none"
+              className="btn w-100 elforge_mosy_btn_secondary_v4"
               onClick={() => confirmProjectStatus("under review")}
               disabled={isSubmitting}
             >
