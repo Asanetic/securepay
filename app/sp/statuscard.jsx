@@ -166,7 +166,7 @@ export default function StatusCard({ data }) {
         <div className="row m-0 col-md-12 px-0 justify-content-start text-left mb-2">
           <div className="col-md-12 mx-0 align-items-center justify-content-start text-left">
             <i className="fa fa-shield text-dark mr-2"></i>
-            <strong className="text-left">Kindly make payment to proceed</strong>
+            <strong className="text-left">Secure and trustworthy</strong>
           </div>
         </div>
     
