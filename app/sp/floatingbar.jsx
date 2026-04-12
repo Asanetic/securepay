@@ -11,7 +11,7 @@ export default function FloatingBar(props = {}) {
   <button 
     onClick={() => promptProjectPayment(project)}
     className="elforge_mosy_float_btn_v1 elforge_mosy_float_primary_v1">
-    Pay Now
+    Make Secure Payment
   </button>
 )}
 {/*   

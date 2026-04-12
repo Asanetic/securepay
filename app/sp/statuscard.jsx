@@ -186,7 +186,7 @@ export default function StatusCard({ data }) {
     
             <div className="row m-0 col-md-12 justify-content-start text-left p-0 ">
               <div className="col-md-12 text-muted text-left p-0 m-0 ">
-                Tap <b className="text-left text-info">Pay Now</b> to begin the transaction securely.
+                Tap <b className="text-left text-info"> Make Secure Payment </b> to begin the transaction securely.
               </div>
             </div>
     
