@@ -265,11 +265,11 @@ export default function StatusCard({ data }) {
       <div className="elforge_mosy_project_head_v6 p-0 m-0 ">
         <div className="row col-md-12 p-0 m-0 justify-content-between align-items-center">
           <div className="col-md-12 py-2 mx-0 px-0 ">
-            <h2 className="elforge_mosy_project_title_v6 col-md-12 p-0 m-0 ">{project?.project_name || "Project"}</h2>
-            <div className="elforge_mosy_project_ref_v6">Ref : no {project?.project_ref || project?.record_id || "-"}</div>
+            <h2 className="elforge_mosy_project_title_v6 col-md-12 px-2 m-0 ">{project?.project_name || "Project"}</h2>
+            <div className="elforge_mosy_project_ref_v6 px-2">Ref : no {project?.project_ref || project?.record_id || "-"}</div>
           </div>
 
-          <div className={`elforge_mosy_status_badge_v6 ${statusMeta.className} col-md-12`}>
+          <div className={`elforge_mosy_status_badge_v6 ${statusMeta.className} px-2 col-md-12`}>
             <i className={statusMeta.icon}></i> {statusMeta.label}
           </div>
         </div>
