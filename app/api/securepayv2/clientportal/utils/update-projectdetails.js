@@ -156,9 +156,10 @@ export async function updateProjectPayment({ auth, payload }) {
     // 4) Notify default admin number + client number
     const clientName = client?.client_name || "Client";
     const companyName = project?.contractor || "SecurePay";
-    const smsMessage = `Hi ${clientName}, your payment of ${project?.currency || ""} ${amount} for "${project?.project_name || "your project"}" has been received successfully.
+    const smsMessage = `Hi ${clientName}, your payment of ${project?.currency || ""} ${amount} for "${project?.project_name || "your item"}" has been received successfully.
 
-Your project is now progressing to the next stage. We'll keep you updated every step of the way.
+We are processing your request. 
+We'll keep you updated when its done on the link shared.
 
 Thank you for choosing ${companyName}.`;
 
