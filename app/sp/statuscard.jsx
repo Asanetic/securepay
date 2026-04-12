@@ -163,8 +163,8 @@ export default function StatusCard({ data }) {
       <div className="container-fluid p-0 text-left" style={{ lineHeight: "35px" }}>
     
         {/* Header */}
-        <div className="row m-0 col-md-12 justify-content-start text-left mb-2">
-          <div className="col-md-12 d-flex align-items-center justify-content-start text-left">
+        <div className="row m-0 col-md-12 px-0 justify-content-start text-left mb-2">
+          <div className="col-md-12 mx-0 align-items-center justify-content-start text-left">
             <i className="fa fa-shield text-dark mr-2"></i>
             <strong className="text-left">Kindly make payment to proceed</strong>
           </div>
@@ -182,16 +182,9 @@ export default function StatusCard({ data }) {
         {/* Step 1 */}
         <div className="row m-0 col-md-12 justify-content-start text-left mb-3">
           <div className="col-md-12 text-left">
+  
     
-            <div className="row m-0 col-md-12 justify-content-start text-left">
-              <div className="col-md-12 d-flex align-items-start justify-content-start text-left">
-                <strong className="text-left text-info">
-                <i className="fa fa-credit-card  mr-2"></i>                  
-                  Initiate Payment</strong>
-              </div>
-            </div>
-    
-            <div className="row m-0 col-md-12 justify-content-start text-left">
+            <div className="row m-0 col-md-12 justify-content-start text-left p-0 ">
               <div className="col-md-12 text-muted text-left">
                 Tap <b className="text-left text-info">Pay Now</b> to begin the transaction securely.
               </div>
@@ -201,19 +194,19 @@ export default function StatusCard({ data }) {
         </div>
     
         {/* Step 2 */}
-        <div className="row m-0 col-md-12 justify-content-start text-left mb-3">
+        <div className="row m-0 col-md-12 justify-content-start text-left mb-3 p-0 ">
           <div className="col-md-12 text-left">
   
     
-            <div className="row m-0 col-md-12 justify-content-start text-left">
+            <div className="row m-0 col-md-12 justify-content-start text-left p-0 ">
               <div className="col-md-12 text-muted text-left">
                 Once youve made your payment, you can:
               </div>
             </div>
     
-            <div className="row m-0 col-md-12 justify-content-start text-left">
-              <div className="col-md-12 text-left">
-                <ul className="mb-0 pl-3 text-left">
+            <div className="row m-0 col-md-12 justify-content-start text-left p-0 ">
+              <div className="col-md-12 text-left m-0 p-0 ">
+                <ul className="mb-0 pl-1 text-left">
                   <li className="text-left">Approve and release funds after delivery</li>
                   <li className="text-left">Request a review incase delivery not done as per agreement</li>
                 </ul>
