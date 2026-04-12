@@ -237,6 +237,12 @@ export default function StatusCard({ data }) {
       return;
     }
 
+    const isReview = normalizeStatus(nextStatus) === "under review";
+    if (isReview && totalPaid <= 0) {
+      MosyCard("", modalMessage);
+      return;
+    }
+
     MosyAlertCard({
       icon: isComplete ? "check-circle" : "flag",
       iconColor: isComplete ? "text-success" : "text-warning",
@@ -375,7 +381,7 @@ export default function StatusCard({ data }) {
 
           {canReview && (
             <button
-              className="btn w-100 elforge_mosy_btn_secondary_v4"
+              className="btn w-100 elforge_mosy_btn_secondary_v4 d-none"
               onClick={() => confirmProjectStatus("under review")}
               disabled={isSubmitting}
             >

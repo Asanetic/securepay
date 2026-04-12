@@ -94,18 +94,18 @@ export function promptProjectPayment(projectDetails = {}) {
 
   if (!projectId) {
     MosyNotify({
-      message: "Project details missing",
+      message: "Item details missing",
       icon: "exclamation-triangle"
     });
     return;
   }
 
   MosyCard(
-    "Pay for Project",
+    "Pay for Item",
     <div className="row col-md-12 m-0 p-0">
 
       <div className="col-md-12 text-left mb-3">
-        <div><b>Project:</b> {projectDetails?.project_name}</div>
+        <div><b>Paying for:</b> {projectDetails?.project_name}</div>
         <div><b>Provider:</b> {projectDetails?.contractor}</div>
         <div><b>Amount:</b> {`${currency} ${amount}`}</div>
       </div>
@@ -173,11 +173,11 @@ function showProjectPromptSentCard(payload = {}) {
   
             <div className="pt-2 pb-2 border-bottom border_set row m-0 p-0 col-md-12">
               <div className="col-md-12 border-bottom bg-light mb-2 text-left">
-                <b>Project Details</b>
+                <b>Item Details</b>
               </div>
   
-              <div className="col-md-4"><b>Project ID:</b> {accountNo}</div>
-              <div className="col-md-4"><b>Project:</b> {accountName}</div>
+              <div className="col-md-4"><b>Payment ID:</b> {accountNo}</div>
+              <div className="col-md-4"><b>Item:</b> {accountName}</div>
               <div className="col-md-4"><b>Security Code:</b> {securityCode}</div>
             </div>
   
@@ -314,7 +314,7 @@ function showProjectPromptSentCard(payload = {}) {
           
             MosyNotify({
               id: "topmost",
-              message: "Payment confirmed. Project updated.",
+              message: "Payment confirmed. Item updated.",
               icon: "check-circle",
               addTimer: false
             });
