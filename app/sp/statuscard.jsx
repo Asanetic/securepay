@@ -241,8 +241,8 @@ export default function StatusCard({ data }) {
       icon: isComplete ? "check-circle" : "flag",
       iconColor: isComplete ? "text-success" : "text-warning",
       message: isComplete
-        ? "Approve this project and mark it as complete?"
-        : "Send this project to under review?",
+        ? "Approve this delivery and mark it as complete?"
+        : "Send this delivery to under review?",
       yesLabel: "Yes",
       noLabel: "No",
       onYes: () => submitProjectStatus(nextStatus),
@@ -270,7 +270,7 @@ export default function StatusCard({ data }) {
       </div>
 
       <div className="text-center mb-3 d-none">
-        <div className="elforge_mosy_title_v2">Project Status</div>
+        <div className="elforge_mosy_title_v2">Status</div>
         <div className="elforge_mosy_sub_v2">{project?.project_ref || project?.record_id || "-"}</div>
       </div>
 
@@ -291,7 +291,7 @@ export default function StatusCard({ data }) {
 
         <div className="elforge_mosy_status_item_v4 py-2 border-bottom">
           <span>
-            <i className="fa fa-code"></i> Project
+            <i className="fa fa-code"></i> Item
           </span>
           <strong className="elforge_mosy_text_active">{currentStatus || "pending"}</strong>
         </div>
@@ -341,7 +341,7 @@ export default function StatusCard({ data }) {
 
       <div className="elforge_mosy_docs_v5">
         {documents.length === 0 && (
-          <div className="elforge_mosy_doc_item_v5 py-2 border-bottom">
+          <div className="elforge_mosy_doc_item_v5 py-2 border-bottom d-none">
             <span>
               <i className="fa fa-file"></i> Documents
             </span>

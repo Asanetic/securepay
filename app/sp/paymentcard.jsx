@@ -25,7 +25,7 @@ export default function PaymentCard({ data }) {
   const computedActiveStepIndex = activeStepIndex === -1 ? steps.length - 1 : activeStepIndex;
 
   const providerName = project?.contractor || "Service Provider";
-  const projectName = project?.project_name || "Project";
+  const projectName = project?.project_name || "Payment for";
   const currency = project?.currency || "";
   const amount = toNum(project?.amount || 0, 2);
 
@@ -41,7 +41,7 @@ export default function PaymentCard({ data }) {
         <h3 className="elforge_mosy_title_v2 py-3">
           {providerName} sent you a transparent payment request
         </h3>
-        <div className="col-md-12 pb-2 h4 px-0"><b>Project : </b>{projectName}</div>
+        <div className="col-md-12 pb-2 h4 px-0"><b>Payment for : </b>{projectName}</div>
         <div className="elforge_mosy_sub_v2">Your progress so far</div>
       </div>
 
@@ -108,7 +108,7 @@ export default function PaymentCard({ data }) {
 
         <div className="elforge_mosy_doc_item_v5 py-2 border-bottom">
           <span>
-            <i className="fa fa-file mr-1"></i> Project
+            <i className="fa fa-file mr-1"></i> Item
           </span>
           <strong>{projectName}</strong>
         </div>
@@ -147,7 +147,7 @@ export default function PaymentCard({ data }) {
           className="btn w-100 elforge_mosy_btn_primary_v4 text-white"
           onClick={() => promptProjectPayment(project)}
         >
-          <i className="fa fa-mobile"></i> Pay for Project
+          <i className="fa fa-mobile"></i> Proceed
         </button>
 
       <button className="btn w-100 elforge_mosy_btn_secondary_v4 d-none">
