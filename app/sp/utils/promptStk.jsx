@@ -91,7 +91,7 @@ export function promptProjectPayment(projectDetails = {}) {
 
   closeMosyCard("modal3");
   closeMosyCard()
-  
+
   if (!projectId) {
     MosyNotify({
       message: "Project details missing",
@@ -145,7 +145,7 @@ export function promptProjectPayment(projectDetails = {}) {
             });
           }}
         >
-          Pay Now
+          Proceed 
         </button>
       </div>
     </div>,
