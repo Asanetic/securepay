@@ -153,7 +153,7 @@ export async function GET(request) {
     const projectRows = await fetchRows(
       "projects",
       projectDictionary,
-      { Node: decodedProjectPrimkey },
+      { NodeId: decodedProjectPrimkey },
       { pageSize: 1, pageNo: 1 }
     );
 
